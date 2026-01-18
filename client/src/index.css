@@ -1,20 +1,25 @@
 :root {
-  /* Gen Z / Neo-Brutalist Palette - Golgappa Edition */
-  --primary: #FF5E00;    /* Spicy Red/Orange */
-  --secondary: #FFD60A;  /* Sev Yellow */
-  --accent: #00C853;     /* Pudina Green */
-  --accent-2: #5D4037;   /* Imli Brown */
+  /* Modern Minimalist Palette */
+  --primary: #2D3436;    /* Dark Slate */
+  --secondary: #00B894;  /* Mint Green */
+  --accent: #0984E3;     /* Electron Blue */
+  --accent-2: #FF7675;   /* Pinkish Red */
   
-  --bg: #F9F5F0;         /* Warm Off-White */
-  --black: #121212;      /* Ink Black */
+  --bg: #FFFFFF;         /* Pure White */
+  --surface: #F8F9FA;    /* Light Gray Surface */
+  --black: #000000;
   --white: #FFFFFF;
+  --text-main: #2D3436;
+  --text-light: #636E72;
   
-  --border-thick: 3px solid var(--black);
-  --shadow-hard: 5px 5px 0px var(--black);
-  --shadow-hover: 8px 8px 0px var(--black);
+  --border-thick: 1px solid #DFE6E9;
+  --shadow-hard: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --shadow-hover: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   
-  --font-heading: 'Fredoka', sans-serif;
-  --font-body: 'Poppins', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  --radius: 12px;
 }
 
 * {
@@ -26,12 +31,7 @@
 body {
   font-family: var(--font-body);
   background-color: var(--bg);
-  background-image: 
-      radial-gradient(#D0C9C0 1px, transparent 1px),
-      radial-gradient(#00C853 0.5px, transparent 0.5px); /* Added subtle green dots */
-  background-size: 24px 24px, 48px 48px; 
-  background-position: 0 0, 12px 12px;
-  color: var(--black);
+  color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -39,13 +39,13 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: -0.02em;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  transition: color 0.2s ease;
 }
 
 ul {
@@ -56,24 +56,27 @@ button {
   cursor: pointer;
   border: none;
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .container {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg);
-  border-left: var(--border-thick);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border: var(--border-thick);
+  background: #B2BEC3;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-light);
 }
