@@ -11,6 +11,12 @@ import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
+import ProductDetails from './pages/ProductDetails';
+import Checkout from './pages/Checkout';
+import UserProfile from './pages/UserProfile';
+import AdminDashboard from './pages/AdminDashboard';
+import OrderSuccess from './pages/OrderSuccess';
+import ProtectedRoute from './components/ProtectedRoute';
 import GoluChatbot from './components/Chatbot';
 
 const Home = () => (
@@ -35,7 +41,31 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/cart" element={<Cart />} />
-            {/* Add Register route later */}
+            <Route path="/product/:id" element={<ProductDetails />} />
+
+            <Route path="/checkout" element={
+              <ProtectedRoute>
+                <Checkout />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/profile" element={
+              <ProtectedRoute>
+                <UserProfile />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/admin/*" element={
+              <ProtectedRoute adminOnly={true}>
+                <AdminDashboard />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/order-success" element={
+              <ProtectedRoute>
+                <OrderSuccess />
+              </ProtectedRoute>
+            } />
           </Routes>
           <Footer />
         </CartProvider>

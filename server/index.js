@@ -17,6 +17,7 @@ app.use('/api/orders', require('./routes/orders'));
 app.use('/api/admin', require('./routes/admin'));
 app.use('/api/coupons', require('./routes/coupons'));
 app.use('/api/notifications', require('./routes/notifications'));
+app.use('/api/delivery', require('./routes/delivery'));
 
 // Basic Route
 app.get('/', (req, res) => {
