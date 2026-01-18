@@ -1,0 +1,79 @@
+.container {
+    background-color: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background: var(--white);
+    padding: 60px;
+    border: var(--border-thick);
+    box-shadow: 10px 10px 0px var(--black);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+.card h2 {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 30px;
+    line-height: 1;
+    text-shadow: 2px 2px 0px var(--black);
+}
+
+.error {
+    background: var(--primary);
+    color: var(--white);
+    padding: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border: 2px solid var(--black);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input {
+    padding: 15px;
+    font-size: 1.2rem;
+    border: 3px solid var(--black);
+    background: var(--bg);
+    font-family: var(--font-heading);
+    font-weight: bold;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 5px 5px 0px var(--secondary);
+}
+
+button {
+    background: var(--black);
+    color: var(--secondary);
+    padding: 15px;
+    font-size: 1.5rem;
+    border: none;
+    box-shadow: 5px 5px 0px var(--primary);
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0px var(--primary);
+}
+
+p {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+p a {
+    color: var(--primary);
+    text-decoration: underline;
+}

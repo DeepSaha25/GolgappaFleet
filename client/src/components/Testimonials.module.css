@@ -1,0 +1,98 @@
+.testimonials {
+    padding: 80px 0;
+    background-color: var(--bg-cream); /* Or Orange? */
+    /* Screenshot 2/3: "WHAT OUR CUSTOMER SAYS" text text is white... 
+       But the background of the PAGE is orange gradient? 
+       No, the screenshot shows the previous section (How it works) has PEACH BG.
+       Then there is a section with "What Our Customer Says".
+       The background is Peach.
+       The CARD is White. 
+       Wait, let's look at Screenshot 3.
+       It uses the same peach/orange background.
+    */
+    /* Making it consistent with previous section */
+    text-align: center;
+}
+
+.sectionSubtitle {
+    color: var(--white); /* Or Orange? */
+    /* In Screenshot 3: Text is White. Background is Orange. */
+    color: var(--text-dark); /* Fallback */
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.slider {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.card {
+    background: var(--white);
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    padding-top: 60px;
+}
+
+.quoteIcon {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FFC107; /* Yellowish orange */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 2rem;
+    font-family: serif;
+}
+
+.quote {
+    color: #FFA500; /* Orange text for quote? Screenshot shows orange text */
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.stars {
+    color: #FFC107;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.author h5 {
+    color: #FFA500;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.author span {
+    color: var(--text-gray);
+    font-size: 0.8rem;
+}
+
+.controls {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.arrowInfo {
+    width: 40px;
+    height: 40px;
+    background: var(--white); /* or orange? */
+    border: 1px solid #FF9F0D;
+    color: #FF9F0D;
+    border-radius: 5px;
+    font-weight: bold;
+}

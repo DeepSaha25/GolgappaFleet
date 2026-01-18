@@ -1,0 +1,71 @@
+.container {
+    padding: 120px 0 60px 0;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+}
+
+.cartBox {
+    background: var(--white);
+    padding: 40px;
+    border: var(--border-thick);
+    box-shadow: 10px 10px 0px var(--black);
+    width: 100%;
+    max-width: 600px;
+}
+
+.cartBox h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    border-bottom: var(--border-thick);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.itemList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg);
+    padding: 15px;
+    border: 2px solid var(--black);
+}
+
+.itemInfo h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.summary {
+    margin-top: 40px;
+    border-top: var(--border-thick);
+    padding-top: 20px;
+    text-align: right;
+}
+
+.summary h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.checkoutBtn {
+    background: var(--primary);
+    color: var(--white);
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    box-shadow: 5px 5px 0px var(--black);
+    margin-left: 10px;
+}
+
+.clearBtn {
+    background: var(--black);
+    color: var(--white);
+    padding: 15px 30px;
+    font-size: 1.2rem;
+}

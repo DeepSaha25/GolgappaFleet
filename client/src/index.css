@@ -1,0 +1,79 @@
+:root {
+  /* Gen Z / Neo-Brutalist Palette - Golgappa Edition */
+  --primary: #FF5E00;    /* Spicy Red/Orange */
+  --secondary: #FFD60A;  /* Sev Yellow */
+  --accent: #00C853;     /* Pudina Green */
+  --accent-2: #5D4037;   /* Imli Brown */
+  
+  --bg: #F9F5F0;         /* Warm Off-White */
+  --black: #121212;      /* Ink Black */
+  --white: #FFFFFF;
+  
+  --border-thick: 3px solid var(--black);
+  --shadow-hard: 5px 5px 0px var(--black);
+  --shadow-hover: 8px 8px 0px var(--black);
+  
+  --font-heading: 'Fredoka', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  background-image: 
+      radial-gradient(#D0C9C0 1px, transparent 1px),
+      radial-gradient(#00C853 0.5px, transparent 0.5px); /* Added subtle green dots */
+  background-size: 24px 24px, 48px 48px; 
+  background-position: 0 0, 12px 12px;
+  color: var(--black);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+  border-left: var(--border-thick);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border: var(--border-thick);
+}
