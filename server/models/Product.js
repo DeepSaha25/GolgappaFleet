@@ -19,7 +19,7 @@ const ProductSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        enum: ['Classic', 'Sweet', 'Exotic', 'Beverage'],
+        enum: ['Classic', 'Sweet', 'Exotic', 'Beverage', 'Spicy', 'Fusion', 'Combo', 'Snacks'],
         required: true
     },
     isSpicy: {
