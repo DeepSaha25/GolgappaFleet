@@ -1,7 +1,7 @@
 :root {
   /* Gen Z / Neo-Brutalist Palette - Golgappa Edition */
   --primary: #FF5E00;    /* Spicy Red/Orange */
-  --secondary: #FFD60A;  /* Sev Yellow */
+  --secondary: #FFC107;  /* Turmeric/Mustard Yellow */
   --accent: #00C853;     /* Pudina Green */
   --accent-2: #5D4037;   /* Imli Brown */
   
@@ -32,7 +32,7 @@ body {
   background-size: 24px 24px, 48px 48px; 
   background-position: 0 0, 12px 12px;
   color: var(--black);
-  line-height: 1.6;
+  line-height: 1.7; /* Increased for better readability */
   overflow-x: hidden;
 }
 

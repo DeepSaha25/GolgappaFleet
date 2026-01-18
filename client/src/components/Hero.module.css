@@ -20,7 +20,7 @@
 .content {
     flex: 1;
     z-index: 2;
-    padding-right: 2rem;
+    padding-right: 4rem; /* More breathing room */
 }
 
 .badgeWrapper {
@@ -57,7 +57,7 @@
 
 .outline {
     color: transparent;
-    -webkit-text-stroke: 2px var(--black); /* Slightly thinner stroke for elegance */
+    -webkit-text-stroke: 3px var(--black); /* Thicker stroke for crunchiness */
 }
 
 .highlight {
@@ -96,16 +96,17 @@
 .btnPrimary {
     background: var(--primary);
     color: var(--white);
-    padding: 1.2rem 2.5rem;
-    font-size: 1.2rem;
+    padding: 1.4rem 3rem; /* Larger click area */
+    font-size: 1.3rem; /* Bolder text */
+    font-weight: 800;
     border: var(--border-thick);
     box-shadow: 6px 6px 0px var(--black);
     transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .btnPrimary:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 10px 10px 0px var(--black);
+    transform: translate(-2px, -2px);
+    box-shadow: 10px 10px 0px var(--black); /* Deeper shadow on hover */
 }
 
 .btnPrimary:active {
@@ -222,13 +223,13 @@
     filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.5));
 }
 
-.emoji1 { top: -10%; right: 20%; animation-delay: 0.5s; transform: rotate(15deg); }
-.emoji2 { bottom: 20%; left: -5%; animation-delay: 1.5s; font-size: 2.5rem; transform: rotate(-20deg); }
-.emoji3 { top: 40%; left: 90%; animation-delay: 1s; font-size: 3.5rem; }
+.emoji1 { top: -5%; right: 25%; animation-delay: 0.5s; transform: rotate(15deg); } /* Adjusted position */
+.emoji2 { bottom: 25%; left: -10%; animation-delay: 1.5s; font-size: 2.5rem; transform: rotate(-20deg); }
+.emoji3 { top: 50%; left: 85%; animation-delay: 1s; font-size: 3.5rem; }
 
 @keyframes floatEmoji {
     0%, 100% { transform: translateY(0) rotate(15deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
+    50% { transform: translateY(-15px) rotate(5deg); } /* Reduced motion range */
 }
 
 @keyframes float {

@@ -40,7 +40,7 @@
     color: var(--black);
     font-weight: 700;
     font-size: 1.1rem;
-    padding: 0.5rem 1.2rem;
+    padding: 0.8rem 1.5rem; /* Increased padding */
     border: 2px solid transparent;
     border-radius: 50px;
     transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -60,6 +60,10 @@
     box-shadow: 4px 4px 0px var(--black);
 }
 
+.mobileMenu {
+    display: none; /* Hide by default on desktop */
+}
+
 .mobileMenu button {
     background: var(--black);
     color: var(--secondary);
@@ -67,6 +71,25 @@
     padding: 8px 12px;
     font-size: 1.5rem;
     box-shadow: 4px 4px 0px var(--primary);
+}
+
+.cartLink {
+    font-size: 1.4rem !important; /* Make cart icon larger */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}  
+
+.cartCount {
+    background: var(--primary);
+    color: var(--white);
+    font-size: 0.8rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+    border: 2px solid var(--black);
+    position: relative;
+    top: -10px;
+    right: 5px;
 }
 
 .logoLink {
