@@ -13,6 +13,10 @@ app.use(express.json());
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/products', require('./routes/products'));
+app.use('/api/orders', require('./routes/orders'));
+app.use('/api/admin', require('./routes/admin'));
+app.use('/api/coupons', require('./routes/coupons'));
+app.use('/api/notifications', require('./routes/notifications'));
 
 // Basic Route
 app.get('/', (req, res) => {

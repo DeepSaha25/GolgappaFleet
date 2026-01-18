@@ -25,6 +25,27 @@ const ProductSchema = new mongoose.Schema({
     isSpicy: {
         type: Boolean,
         default: false
+    },
+    inventory_count: {
+        type: Number,
+        default: 0,
+        required: true
+    },
+    low_stock_threshold: {
+        type: Number,
+        default: 10
+    },
+    rating_average: {
+        type: Number,
+        default: 0
+    },
+    rating_count: {
+        type: Number,
+        default: 0
+    },
+    is_available: {
+        type: Boolean,
+        default: true
     }
 });
 
