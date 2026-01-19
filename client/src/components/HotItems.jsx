@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { CartContext } from '../context/CartContext';
+import ProductCard from './ProductCard';
 import styles from './HotItems.module.css';
 
 const HotItems = () => {
@@ -27,17 +28,8 @@ const HotItems = () => {
 
                 <div className={styles.grid}>
                     {items.map(item => (
-                        <div key={item._id} className={styles.card}>
-                            <div className={styles.tag}>{item.category}</div>
-                            <img src={item.image} alt={item.name} className={styles.cardImage} />
-                            <div className={styles.cardContent}>
-                                <h4 className={styles.itemName}>{item.name}</h4>
-                                <p style={{ marginBottom: '10px', fontSize: '0.9rem' }}>{item.description}</p>
-                                <div className={styles.cardFooter}>
-                                    <span className={styles.price}>₹{item.price}</span>
-                                    <button className={styles.addBtn} onClick={() => addToCart(item)}>+</button>
-                                </div>
-                            </div>
+                        <div key={item._id} className={styles.cardWrapper}>
+                            <ProductCard product={item} />
                         </div>
                     ))}
                 </div>

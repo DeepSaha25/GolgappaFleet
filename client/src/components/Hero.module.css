@@ -1,245 +1,147 @@
+/* Zomato/Swiggy Style Hero */
 .hero {
-    padding-top: 2rem;
-    padding-bottom: 4rem;
     position: relative;
+    padding: 0;
+    margin-bottom: 40px;
+    background: #1c1c1c; /* Dark backdrop for the hero image */
     overflow: hidden;
-    background-color: var(--surface);
-    display: flex;
-    flex-direction: column;
+    height: 450px; /* Specific height like Zomato banner */
 }
 
+/* Full Width Background Image Overlay Style */
 .heroContainer {
+    max-width: 100%; /* Go Full Width */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    min-height: 80vh;
-    gap: 4rem;
+    justify-content: center;
+}
+
+.heroBackground {
+     /* We will use the hero image as a background cover */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6; /* Darken for text readability */
+    z-index: 1;
 }
 
 .content {
-    flex: 1;
+    position: relative;
     z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-}
-
-.badgeWrapper {
-    margin-bottom: 2rem;
-    display: inline-block;
-}
-
-.reviewBadge {
-    background: rgba(0, 184, 148, 0.1);
-    color: var(--secondary);
-    border-radius: 100px;
-    padding: 0.5rem 1rem;
-    font-weight: 600;
-    font-size: 0.9rem;
-    display: flex;
     align-items: center;
-    gap: 8px;
-    border: 1px solid rgba(0, 184, 148, 0.2);
 }
 
-.reviewBadge:hover {
-    background: rgba(0, 184, 148, 0.15);
-}
-
+/* Zomato-style Big Logo Text in Hero is common */
 .title {
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    line-height: 1.1;
-    color: var(--text-main);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.03em;
-}
-
-.outline {
-    color: var(--text-light); /* Subtle distinction instead of stroke */
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 24px;
     font-style: italic;
-}
-
-.highlight {
-    color: var(--secondary);
-    background: transparent;
-    padding: 0;
-    box-shadow: none;
-    border: none;
-    display: inline;
-    transform: none;
-    position: relative;
-}
-
-/* Underline style for highlight */
-.highlight::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 5px;
-    width: 100%;
-    height: 8px;
-    background: var(--secondary);
-    opacity: 0.2;
-    z-index: -1;
-    border-radius: 4px;
+    letter-spacing: -1px;
 }
 
 .subtitle {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    max-width: 500px;
-    margin-bottom: 3rem;
+    font-size: 1.8rem;
+    color: white;
     font-weight: 400;
-    color: var(--text-light);
-    background: transparent;
-    border: none;
-    padding: 0;
-    box-shadow: none;
+    margin-bottom: 40px;
 }
 
-.buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.btnPrimary {
-    background: var(--secondary);
-    color: var(--white);
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: var(--radius);
-    box-shadow: 0 4px 10px rgba(0, 184, 148, 0.3);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    font-weight: 600;
-}
-
-.btnPrimary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0, 184, 148, 0.4);
-}
-
-.btnPrimary:active {
-    transform: translateY(0);
-}
-
-.btnSecondary {
+/* Search Bar in Hero - The Signature Zomato Look */
+.searchContainer {
+    width: 100%;
+    max-width: 700px;
     background: white;
-    color: var(--text-main);
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    border: 1px solid var(--text-light);
-    border-radius: var(--radius);
-    transition: all 0.2s ease;
-    box-shadow: none;
-}
-
-.btnSecondary:hover {
-    background: var(--surface);
-    border-color: var(--text-main);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hard);
-}
-
-/* Image Side */
-.imageWrapper {
-    flex: 1;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.heroImage {
-    width: min(500px, 90vw);
-    height: min(500px, 90vw);
-    border-radius: 50%;
-    object-fit: cover;
-    z-index: 2;
-    box-shadow: var(--shadow-hover);
-    border: 8px solid white;
-}
-
-.blob {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: var(--secondary);
-    border-radius: 50%;
-    z-index: 1;
-    opacity: 0.05;
-    filter: blur(40px);
-}
-
-/* Floating Elements - Refined */
-.floatingCard {
-    position: absolute;
-    background: var(--white);
-    border: 1px solid #eee;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    box-shadow: var(--shadow-hard);
-    z-index: 3;
-    animation: float 6s infinite ease-in-out;
     border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-.card1 {
-    top: 10%;
-    left: 0%;
-    transform: rotate(-5deg);
+.locationInput {
+    flex: 1;
+    border: none;
+    border-right: 1px solid #ccc;
+    padding: 12px;
+    font-size: 1rem;
+    outline: none;
 }
 
-.card2 {
-    bottom: 15%;
-    right: 0%;
-    background: var(--text-main);
-    color: var(--white);
-    transform: rotate(5deg);
+.searchInput {
+    flex: 2;
+    border: none;
+    padding: 12px;
+    padding-left: 20px;
+    font-size: 1rem;
+    outline: none;
 }
 
-.floatingEmoji {
-    display: none; /* Hide for cleaner look */
+.searchButton {
+    background: var(--primary);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-left: 8px;
+    transition: background 0.2s ease;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+.searchButton:hover {
+    background: #e03546;
 }
 
-
-/* Hide Marquee in Minimalist or Style it */
-.marquee {
+/* Hide elements not needed in this layout */
+.imageWrapper, .blob, .floatingEmoji, .floatingCard, .badgeWrapper, .marquee, .btnSecondary {
     display: none;
 }
 
-@media (max-width: 900px) {
-    .heroContainer {
-        flex-direction: column;
-        padding-top: 2rem;
-        gap: 3rem;
-        text-align: center;
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+        min-height: 400px;
+        padding: 40px 0;
     }
     
-    .content {
-        align-items: center;
-        padding-right: 0;
-        margin-bottom: 0;
-    }
-
     .title {
-        font-size: 3rem;
-    }
-    
-    .subtitle {
-        margin-left: auto;
-        margin-right: auto;
+        font-size: 2.5rem;
     }
 
-    .imageWrapper {
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .searchContainer {
+        flex-direction: column;
+        background: transparent;
+        box-shadow: none;
+        gap: 12px;
+    }
+
+    .locationInput, .searchInput, .searchButton {
         width: 100%;
+        border-radius: 8px;
+        border: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        padding: 16px;
+    }
+    
+    .locationInput, .searchInput {
+        background: white;
     }
 }

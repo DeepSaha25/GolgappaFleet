@@ -1,9 +1,21 @@
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
+import { AuthContext } from '../context/AuthContext';
 import styles from './Cart.module.css';
 
 const Cart = () => {
     const { cart, removeFromCart, total, clearCart } = useContext(CartContext);
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleCheckout = () => {
+        if (!user) {
+            navigate('/login');
+        } else {
+            navigate('/address');
+        }
+    };
 
     return (
         <div className={styles.container}>
@@ -29,7 +41,7 @@ const Cart = () => {
                 {cart.length > 0 && (
                     <div className={styles.summary}>
                         <h3>TOTAL: ₹{total}</h3>
-                        <button className={styles.checkoutBtn} onClick={() => alert('Proceeding to Payment Gateway...')}>CHECKOUT 💳</button>
+                        <button className={styles.checkoutBtn} onClick={handleCheckout}>PLACE ORDER 💳</button>
                         <button className={styles.clearBtn} onClick={clearCart}>CLEAR ALL</button>
                     </div>
                 )}

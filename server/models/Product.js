@@ -19,12 +19,33 @@ const ProductSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        enum: ['Classic', 'Sweet', 'Exotic', 'Beverage'],
+        enum: ['Classic', 'Sweet', 'Exotic', 'Beverage', 'Spicy', 'Fusion', 'Combo', 'Snacks'],
         required: true
     },
     isSpicy: {
         type: Boolean,
         default: false
+    },
+    inventory_count: {
+        type: Number,
+        default: 0,
+        required: true
+    },
+    low_stock_threshold: {
+        type: Number,
+        default: 10
+    },
+    rating_average: {
+        type: Number,
+        default: 0
+    },
+    rating_count: {
+        type: Number,
+        default: 0
+    },
+    is_available: {
+        type: Boolean,
+        default: true
     }
 });
 
