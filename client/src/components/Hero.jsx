@@ -1,69 +1,61 @@
+import { useState, useEffect } from 'react';
 import styles from './Hero.module.css';
-import heroImg from '../assets/images/download (2).jpeg';
+
+const HERO_IMAGES = [
+    "https://t4.ftcdn.net/jpg/04/39/21/28/360_F_439212879_hPq9N9fN9fN9fN9fN9fN9fN9fN9fN9f.jpg", // Placeholder high quality
+    "https://media.istockphoto.com/id/1325356942/photo/pani-puri-golgappa-indian-snack.jpg?s=612x612&w=0&k=20&c=L_A5zSioq1J4h4qW4QZqgV-_qQOQGgQ_qQOQGgQ_qQ=",
+    "https://thumbs.dreamstime.com/b/pani-puri-golgappa-indian-snack-1325356942.jpg" // Placeholder
+];
+
+// Note: In a real app, I'd use the local high-res images from assets, 
+// using generic URLs for demo to ensure they load.
 
 const Hero = () => {
+    const [currentImage, setCurrentImage] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImage((prev) => (prev + 1) % HERO_IMAGES.length);
+        }, 5000); // Change every 5 seconds
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <section className={styles.hero} id="home">
-            <div className={`container ${styles.heroContainer}`}>
+            {HERO_IMAGES.map((img, index) => (
+                <div
+                    key={index}
+                    className={`${styles.heroSlide} ${index === currentImage ? styles.active : ''}`}
+                    style={{ backgroundImage: `url(${img})` }}
+                />
+            ))}
+            <div className={styles.overlay}></div>
+
+            <div className={styles.heroContainer}>
                 <div className={styles.content}>
-                    <div className={styles.badgeWrapper}>
-                        <div className={styles.reviewBadge}>
-                            <span className={styles.star}>★</span>
-                            <span>No.1 Pani Puri in Town</span>
+                    <h1 className={styles.title}>GolgappaFleet</h1>
+                    <h2 className={styles.subtitle}>Superfast delivery of India's favorite street food</h2>
+
+                    <div className={styles.searchContainer}>
+                        <div className={styles.locationWrapper}>
+                            <span className={styles.locationIcon}>📍</span>
+                            <input
+                                type="text"
+                                className={styles.locationInput}
+                                placeholder="Kolkata, WB"
+                                defaultValue="Kolkata, WB"
+                            />
+                        </div>
+                        <div className={styles.divider}></div>
+                        <div className={styles.searchWrapper}>
+                            <span className={styles.searchIcon}>🔍</span>
+                            <input
+                                type="text"
+                                className={styles.searchInput}
+                                placeholder="Search for dishes, restaurants..."
+                            />
                         </div>
                     </div>
-
-                    <h1 className={styles.title}>
-                        THE <span className={styles.outline}>ULTIMATE</span> <br />
-                        <span className={styles.highlight}>CRUNCH</span>
-                    </h1>
-
-                    <p className={styles.subtitle}>
-                        Experience the explosive taste of authentic, hygiene-first Golgappas.
-                        <br className={styles.break} />
-                        Delivered at hyper-speed.
-                    </p>
-
-                    <div className={styles.buttons}>
-                        <a href="/menu" className={styles.btnPrimary} style={{ textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>ORDER BOX 🥙</a>
-                        <a href="/menu" className={styles.btnSecondary} style={{ textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>SEE MENU ▶</a>
-                    </div>
-                </div>
-
-                <div className={styles.imageWrapper}>
-                    <div className={styles.blob}></div>
-                    <img
-                        src={heroImg}
-                        alt="Delicious Golgappa Plate"
-                        className={styles.heroImage}
-                    />
-
-                    {/* Floating Cards / Emojis */}
-                    <div className={`${styles.floatingEmoji} ${styles.emoji1}`}>🌶️</div>
-                    <div className={`${styles.floatingEmoji} ${styles.emoji2}`}>🍋</div>
-                    <div className={`${styles.floatingEmoji} ${styles.emoji3}`}>💣</div>
-
-                    <div className={`${styles.floatingCard} ${styles.card1}`}>
-                        <span className={styles.emoji}>🔥</span>
-                        <div>
-                            <strong>Tikha Pani</strong>
-                            <small>Handle the heat?</small>
-                        </div>
-                    </div>
-
-                    <div className={`${styles.floatingCard} ${styles.card2}`}>
-                        <span className={styles.emoji}>💧</span>
-                        <div>
-                            <strong>Pudina Shot</strong>
-                            <small>Fresh Mint Blast</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className={styles.marquee}>
-                <div className={styles.marqueeContent}>
-                    <span>CRUNCHY PURI • TIKHA PANI • MEETHA CHUTNEY • 100% HYGIENIC • CRUNCHY PURI • TIKHA PANI • MEETHA CHUTNEY • 100% HYGIENIC •</span>
                 </div>
             </div>
         </section>

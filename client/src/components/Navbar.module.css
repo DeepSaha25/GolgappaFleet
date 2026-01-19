@@ -95,17 +95,33 @@
 }
 
 .loginBtn {
-    color: var(--text-light);
-    font-weight: 600;
+    color: var(--text-main);
+    font-weight: 500;
     font-size: 1rem;
     background: transparent;
+    padding: 8px 16px;
+    transition: color 0.2s ease;
 }
 
+.loginBtn:hover {
+    color: var(--primary);
+}
+
+
 .signupBtn {
-    color: var(--text-light);
+    color: white;
     font-weight: 600;
     font-size: 1rem;
-    background: transparent;
+    background: var(--primary);
+    padding: 8px 24px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+    box-shadow: 0 2px 5px rgba(245, 158, 11, 0.3);
+}
+
+.signupBtn:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 4px 8px rgba(217, 119, 6, 0.4);
 }
 
 /* Cart Icon */

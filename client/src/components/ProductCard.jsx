@@ -12,14 +12,15 @@ const ProductCard = ({ product }) => {
 
     return (
         <div className="product-card" style={{
-            border: '1px solid #eee',
-            borderRadius: '12px',
+            border: '1px solid var(--border)',
+            borderRadius: 'var(--radius)',
             overflow: 'hidden',
-            transition: 'transform 0.2s',
-            background: 'white',
-            position: 'relative'
+            transition: 'all 0.2s',
+            background: 'var(--surface)',
+            position: 'relative',
+            boxShadow: 'var(--shadow-card)'
         }}>
-            <div className="image-container" style={{ position: 'relative', paddingTop: '75%' }}>
+            <div className="image-container" style={{ position: 'relative', paddingTop: '70%' }}>
                 <img
                     src={product.image || 'https://via.placeholder.com/300x200?text=Golgappa'}
                     alt={product.name}
@@ -39,17 +40,18 @@ const ProductCard = ({ product }) => {
                             position: 'absolute',
                             top: '10px',
                             right: '10px',
-                            background: 'rgba(255,255,255,0.8)',
+                            background: 'rgba(255,255,255,0.9)',
                             border: 'none',
                             borderRadius: '50%',
                             width: '32px',
                             height: '32px',
                             cursor: 'pointer',
-                            color: isFavorite ? 'red' : 'gray',
+                            color: isFavorite ? '#e23744' : '#b2bec3',
                             fontSize: '1.2rem',
                             display: 'flex',
                             alignItems: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
                         }}
                     >
                         ♥
@@ -59,30 +61,36 @@ const ProductCard = ({ product }) => {
 
             <div className="content" style={{ padding: '16px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                    <h3 style={{ margin: '0 0 8px', fontSize: '1.1rem' }}>{product.name}</h3>
+                    <h3 style={{ margin: '0 0 8px', fontSize: '1.2rem', color: 'var(--text-main)', fontWeight: '700' }}>{product.name}</h3>
                     {product.isSpicy && <span title="Spicy">🌶️</span>}
                 </div>
 
-                <p style={{ color: '#666', fontSize: '0.9rem', margin: '0 0 12px', height: '40px', overflow: 'hidden' }}>
+                <p style={{ color: 'var(--text-light)', fontSize: '0.9rem', margin: '0 0 16px', height: '40px', overflow: 'hidden' }}>
                     {product.description}
                 </p>
 
-                {/* <div style={{ marginBottom: '12px' }}>
-                    <StarRating rating={product.rating_average || 0} readOnly={true} />
-                    <span style={{ fontSize: '0.8rem', color: '#888' }}>
-                        ({product.rating_count || 0} reviews)
-                    </span>
-                </div> */}
-
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto' }}>
-                    <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>₹{product.price}</span>
+                    <span style={{ fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--text-main)' }}>₹{product.price}</span>
 
                     {product.inventory_count > 0 ? (
                         <button
                             onClick={() => addToCart(product)}
-                            className="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition-colors text-sm"
+                            className="add-btn"
+                            style={{
+                                backgroundColor: 'var(--primary)',
+                                color: 'white',
+                                padding: '8px 20px',
+                                borderRadius: '8px',
+                                fontSize: '0.9rem',
+                                fontWeight: '600',
+                                border: 'none',
+                                cursor: 'pointer',
+                                transition: 'background 0.2s'
+                            }}
+                            onMouseOver={(e) => e.target.style.backgroundColor = 'var(--primary-hover)'}
+                            onMouseOut={(e) => e.target.style.backgroundColor = 'var(--primary)'}
                         >
-                            Add to Cart
+                            ADD
                         </button>
                     ) : (
                         <span className="text-red-500 font-bold text-sm">Out of Stock</span>

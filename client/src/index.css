@@ -1,27 +1,28 @@
 :root {
-  /* Zomato/Swiggy Modern Minimalist Palette */
-  --primary: #E23744;    /* Zomato Red */
-  --primary-hover: #D32F2F;
-  --secondary: #1C1C1C;  /* Dark Text */
-  --accent: #24963F;     /* Rating Green */
-  --accent-blue: #0984E3; /* Link Blue */
+  /* Swiggy-Style Professional Palette */
+  --primary: #F59E0B;    /* Warm Amber/Yellow - Brand Color */
+  --primary-hover: #D97706;
+  --secondary: #111827;  /* Deep Black/Gray for Headings */
+  --accent: #10B981;     /* Success Green (Veg/Rating) */
+  --accent-red: #EF4444; /* Error/Non-Veg */
   
-  --bg: #FFFFFF;         /* Pure White Background */
-  --bg-gray: #F8F8F8;    /* Light Gray Background Section */
-  --surface: #FFFFFF;    /* Card Surface */
-  --border: #E8E8E8;     /* Subtle Border */
+  --bg: #FFFFFF;         /* Pure White */
+  --bg-gray: #F9FAFB;    /* Light Gray Section BG */
+  --surface: #FFFFFF;
+  --border: #E5E7EB;     /* Neutral Border */
   
-  --text-main: #1C1C1C;  /* Main Text */
-  --text-light: #696969; /* Subtitle Gray */
-  --text-placeholder: #9C9C9C;
+  --text-main: #1F2937;  /* Dark Gray Body */
+  --text-light: #6B7280; /* Muted Text */
+  --text-placeholder: #9CA3AF;
 
-  --shadow-card: 0 1px 4px rgba(0,0,0,0.08);
-  --shadow-hover: 0 3px 8px rgba(0,0,0,0.12);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
   
-  --radius: 8px; /* Slightly sharper radius than before for cleaner look */
+  --radius: 8px; /* Professional, slightly tighter radius */
 }
 
 * {

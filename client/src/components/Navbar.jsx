@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import { AuthContext } from '../context/AuthContext';
 import styles from './Navbar.module.css';
@@ -7,34 +7,47 @@ import logo from '../assets/images/logo.png';
 
 const Navbar = () => {
     const { cart } = useContext(CartContext);
-    const { user } = useContext(AuthContext);
+    const { user, login, logout } = useContext(AuthContext);
 
     return (
         <nav className={styles.navbar}>
-            <div className={`container ${styles.navContainer}`}>
+            <div className={styles.navContainer}>
                 <div className={styles.logo}>
                     <NavLink to="/">
-                        <span>🥙 GolgappaFleet</span>
+                        <i>GolgappaFleet</i>
                     </NavLink>
                 </div>
-                <ul className={styles.navLinks}>
-                    <li><NavLink to="/" className={({ isActive }) => isActive ? styles.active : ''}>Home</NavLink></li>
-                    <li><NavLink to="/menu" className={({ isActive }) => isActive ? styles.active : ''}>Menu</NavLink></li>
 
-                    {user ? (
-                        <>
-                            {user.role === 'admin' && <li><NavLink to="/admin" className={({ isActive }) => isActive ? styles.active : ''}>Admin</NavLink></li>}
-                            <li><NavLink to="/profile" className={({ isActive }) => isActive ? styles.active : ''}>Profile</NavLink></li>
-                        </>
-                    ) : (
-                        <li><NavLink to="/login" className={({ isActive }) => isActive ? styles.active : ''}>Login</NavLink></li>
-                    )}
-                    <li>
-                        <NavLink to="/cart" className={styles.cartLink}>
-                            🛒 <span className={styles.cartCount}>{cart.length}</span>
-                        </NavLink>
-                    </li>
-                </ul>
+                {/* Desktop Search Bar */}
+                <div className={styles.searchBarWrapper}>
+                    <span className={styles.searchIcon}>🔍</span>
+                    <input
+                        type="text"
+                        placeholder="Search for 'Spicy Pani Puri' or 'Dahi Puri'..."
+                        className={styles.searchBar}
+                    />
+                </div>
+
+                <div className={styles.navLinks}>
+                    <div className={styles.authButtons}>
+                        {user ? (
+                            <>
+                                <NavLink to="/profile">{user.name}</NavLink>
+                                <button onClick={logout} className={styles.loginBtn}>Logout</button>
+                            </>
+                        ) : (
+                            <>
+                                <Link to="/login" className={styles.loginBtn}>Log in</Link>
+                                <Link to="/login" className={styles.signupBtn}>Sign up</Link>
+                            </>
+                        )}
+                    </div>
+
+                    <NavLink to="/cart" className={styles.cartLink}>
+                        🛒 <span className={styles.cartCount}>{cart.length}</span>
+                    </NavLink>
+                </div>
+
                 <div className={styles.mobileMenu}>
                     <button>☰</button>
                 </div>

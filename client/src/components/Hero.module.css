@@ -1,147 +1,156 @@
-/* Zomato/Swiggy Style Hero */
+/* Professional Hero with Slideshow */
 .hero {
     position: relative;
     padding: 0;
-    margin-bottom: 40px;
-    background: #1c1c1c; /* Dark backdrop for the hero image */
+    margin-bottom: 2rem;
+    height: 500px;
+    background: #111; /* Fallback */
     overflow: hidden;
-    height: 450px; /* Specific height like Zomato banner */
-}
-
-/* Full Width Background Image Overlay Style */
-.heroContainer {
-    max-width: 100%; /* Go Full Width */
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.heroBackground {
-     /* We will use the hero image as a background cover */
+.heroSlide {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    opacity: 0.6; /* Darken for text readability */
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
     z-index: 1;
 }
 
-.content {
-    position: relative;
+.heroSlide.active {
+    opacity: 1;
+}
+
+/* Strict Dark Overlay for Text Readability */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)); /* Heavy bottom gradient */
     z-index: 2;
-    text-align: center;
-    max-width: 800px;
+}
+
+.heroContainer {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 900px;
     padding: 0 20px;
+    text-align: center;
+}
+
+.content {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Zomato-style Big Logo Text in Hero is common */
 .title {
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 800;
     color: white;
-    margin-bottom: 24px;
-    font-style: italic;
-    letter-spacing: -1px;
+    margin-bottom: 1rem;
+    font-style: italic; /* Signature brand style */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .subtitle {
-    font-size: 1.8rem;
-    color: white;
+    font-size: 1.5rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 3rem;
     font-weight: 400;
-    margin-bottom: 40px;
 }
 
-/* Search Bar in Hero - The Signature Zomato Look */
+/* Zomato-Style Search Container */
 .searchContainer {
     width: 100%;
-    max-width: 700px;
     background: white;
     border-radius: 12px;
-    padding: 12px;
     display: flex;
     align-items: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    padding: 8px;
+    box-shadow: var(--shadow-hover);
+}
+
+.locationWrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-right: 1px solid var(--border);
+}
+
+.locationIcon {
+    font-size: 1.2rem;
+    margin-right: 8px;
+    color: var(--primary); /* Yellow Pin */
 }
 
 .locationInput {
-    flex: 1;
+    width: 100%;
     border: none;
-    border-right: 1px solid #ccc;
-    padding: 12px;
+    font-family: var(--font-body);
     font-size: 1rem;
+    padding: 12px 0;
     outline: none;
+    color: var(--text-main);
 }
 
-.searchInput {
-    flex: 2;
-    border: none;
-    padding: 12px;
-    padding-left: 20px;
-    font-size: 1rem;
-    outline: none;
-}
-
-.searchButton {
-    background: var(--primary);
-    color: white;
-    padding: 12px 30px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1rem;
-    margin-left: 8px;
-    transition: background 0.2s ease;
-}
-
-.searchButton:hover {
-    background: #e03546;
-}
-
-/* Hide elements not needed in this layout */
-.imageWrapper, .blob, .floatingEmoji, .floatingCard, .badgeWrapper, .marquee, .btnSecondary {
+.divider {
+    /* Visual divider handled by border-right above, strictly invisible here */
     display: none;
 }
 
-/* Responsive */
+.searchWrapper {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.searchIcon {
+    font-size: 1.2rem;
+    color: var(--text-placeholder);
+    margin-right: 8px;
+}
+
+.searchInput {
+    width: 100%;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 12px 0;
+    outline: none;
+    color: var(--text-main);
+}
+
 @media (max-width: 768px) {
-    .hero {
-        height: auto;
-        min-height: 400px;
-        padding: 40px 0;
-    }
+    .title { font-size: 2.5rem; }
+    .subtitle { font-size: 1.1rem; }
     
-    .title {
-        font-size: 2.5rem;
-    }
-
-    .subtitle {
-        font-size: 1.2rem;
-    }
-
     .searchContainer {
         flex-direction: column;
-        background: transparent;
-        box-shadow: none;
-        gap: 12px;
-    }
-
-    .locationInput, .searchInput, .searchButton {
-        width: 100%;
         border-radius: 8px;
-        border: none;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        padding: 16px;
+        overflow: hidden;
     }
     
-    .locationInput, .searchInput {
-        background: white;
+    .locationWrapper, .searchWrapper {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 8px 16px;
+    }
+    
+    .searchWrapper {
+        border-bottom: none;
     }
 }

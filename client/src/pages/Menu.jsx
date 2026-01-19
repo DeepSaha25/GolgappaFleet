@@ -38,10 +38,18 @@ const Menu = () => {
                     <button
                         key={cat}
                         onClick={() => setFilter(cat)}
-                        className={`px-6 py-2 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 ${filter === cat
-                                ? 'bg-yellow-500 text-white shadow-lg'
-                                : 'bg-white text-gray-600 border border-gray-200 hover:bg-yellow-50 hover:text-yellow-600'
-                            }`}
+                        style={{
+                            padding: '8px 24px',
+                            borderRadius: '50px',
+                            fontSize: '1rem',
+                            fontWeight: '500',
+                            border: filter === cat ? 'none' : '1px solid var(--border)',
+                            backgroundColor: filter === cat ? 'var(--primary)' : 'white',
+                            color: filter === cat ? 'white' : 'var(--text-light)',
+                            cursor: 'pointer',
+                            boxShadow: filter === cat ? '0 4px 10px rgba(245, 158, 11, 0.3)' : 'none',
+                            transition: 'all 0.2s ease'
+                        }}
                     >
                         {cat}
                     </button>
@@ -55,25 +63,78 @@ const Menu = () => {
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     {filteredProducts.map(product => (
-                        <Link key={product._id} to={`/product/${product._id}`}>
-                            <div className="border border-gray-100 rounded-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 bg-white">
+                        <Link key={product._id} to={`/product/${product._id}`} style={{ textDecoration: 'none' }}>
+                            <div style={{
+                                border: '1px solid var(--border)',
+                                borderRadius: 'var(--radius)',
+                                overflow: 'hidden',
+                                background: 'var(--surface)',
+                                transition: 'all 0.3s ease',
+                                boxShadow: 'var(--shadow-card)',
+                                height: '100%'
+                            }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.transform = 'translateY(-5px)';
+                                    e.currentTarget.style.boxShadow = 'var(--shadow-hover)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.transform = 'translateY(0)';
+                                    e.currentTarget.style.boxShadow = 'var(--shadow-card)';
+                                }}
+                            >
                                 <img
                                     src={product.image}
                                     alt={product.name}
-                                    className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
+                                    style={{
+                                        width: '100%',
+                                        height: '200px',
+                                        objectFit: 'cover'
+                                    }}
                                 />
                                 <div className="p-4">
                                     <div className="flex justify-between items-start mb-2">
-                                        <h3 className="text-xl font-bold text-gray-800 truncate">{product.name}</h3>
-                                        <span className={`text-xs px-2 py-1 rounded ${product.isSpicy ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}`}>
-                                            {product.isSpicy ? 'Spicy' : 'Sweet/Mild'}
+                                        <h3 style={{
+                                            fontSize: '1.2rem',
+                                            fontWeight: '700',
+                                            color: 'var(--text-main)',
+                                            margin: 0
+                                        }}>{product.name}</h3>
+                                        <span style={{
+                                            fontSize: '0.75rem',
+                                            padding: '4px 8px',
+                                            borderRadius: '4px',
+                                            backgroundColor: product.isSpicy ? '#FEE2E2' : '#D1FAE5',
+                                            color: product.isSpicy ? '#DC2626' : '#059669',
+                                            fontWeight: '600'
+                                        }}>
+                                            {product.isSpicy ? 'Spicy' : 'Mild'}
                                         </span>
                                     </div>
-                                    <p className="text-gray-500 text-sm mb-4 line-clamp-2">{product.description}</p>
+                                    <p style={{
+                                        color: 'var(--text-light)',
+                                        fontSize: '0.9rem',
+                                        marginBottom: '16px',
+                                        display: '-webkit-box',
+                                        WebkitLineClamp: 2,
+                                        WebkitBoxOrient: 'vertical',
+                                        overflow: 'hidden'
+                                    }}>{product.description}</p>
                                     <div className="flex justify-between items-center">
-                                        <span className="text-lg font-bold text-gray-900">₹{product.price}</span>
-                                        <button className="bg-yellow-400 text-white px-4 py-2 rounded-lg font-medium hover:bg-yellow-500 transition-colors">
-                                            View
+                                        <span style={{ fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--text-main)' }}>₹{product.price}</span>
+                                        <button style={{
+                                            backgroundColor: 'var(--primary)',
+                                            color: 'white',
+                                            padding: '8px 24px',
+                                            borderRadius: '8px',
+                                            fontWeight: '600',
+                                            border: 'none',
+                                            cursor: 'pointer',
+                                            transition: 'background 0.2s'
+                                        }}
+                                            onMouseOver={(e) => e.target.style.backgroundColor = 'var(--primary-hover)'}
+                                            onMouseOut={(e) => e.target.style.backgroundColor = 'var(--primary)'}
+                                        >
+                                            ADD
                                         </button>
                                     </div>
                                 </div>
