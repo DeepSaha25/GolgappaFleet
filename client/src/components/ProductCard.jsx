@@ -67,12 +67,12 @@ const ProductCard = ({ product }) => {
                     {product.description}
                 </p>
 
-                <div style={{ marginBottom: '12px' }}>
+                {/* <div style={{ marginBottom: '12px' }}>
                     <StarRating rating={product.rating_average || 0} readOnly={true} />
                     <span style={{ fontSize: '0.8rem', color: '#888' }}>
                         ({product.rating_count || 0} reviews)
                     </span>
-                </div>
+                </div> */}
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto' }}>
                     <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>₹{product.price}</span>

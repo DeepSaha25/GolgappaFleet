@@ -13,8 +13,8 @@
   --shadow-hard: 5px 5px 0px var(--black);
   --shadow-hover: 8px 8px 0px var(--black);
   
-  --font-heading: 'Fredoka', sans-serif;
-  --font-body: 'Poppins', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
 }
 
 * {

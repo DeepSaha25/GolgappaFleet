@@ -19,7 +19,7 @@ const Navbar = () => {
                 </div>
                 <ul className={styles.navLinks}>
                     <li><NavLink to="/" className={({ isActive }) => isActive ? styles.active : ''}>Home</NavLink></li>
-                    <li><a href="/#menu">Menu</a></li>
+                    <li><NavLink to="/menu" className={({ isActive }) => isActive ? styles.active : ''}>Menu</NavLink></li>
 
                     {user ? (
                         <>

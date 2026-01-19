@@ -11,6 +11,8 @@ import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
+import Menu from './pages/Menu';
+import AddressPage from './pages/AddressPage';
 import ProductDetails from './pages/ProductDetails';
 import Checkout from './pages/Checkout';
 import UserProfile from './pages/UserProfile';
@@ -41,7 +43,14 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/menu" element={<Menu />} />
             <Route path="/product/:id" element={<ProductDetails />} />
+
+            <Route path="/address" element={
+              <ProtectedRoute>
+                <AddressPage />
+              </ProtectedRoute>
+            } />
 
             <Route path="/checkout" element={
               <ProtectedRoute>

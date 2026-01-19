@@ -25,8 +25,8 @@ const Hero = () => {
                     </p>
 
                     <div className={styles.buttons}>
-                        <button className={styles.btnPrimary}>ORDER BOX 🥙</button>
-                        <button className={styles.btnSecondary}>SEE MENU ▶</button>
+                        <a href="/menu" className={styles.btnPrimary} style={{ textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>ORDER BOX 🥙</a>
+                        <a href="/menu" className={styles.btnSecondary} style={{ textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>SEE MENU ▶</a>
                     </div>
                 </div>
 
